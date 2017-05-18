@@ -72,16 +72,10 @@ public class LoginTest extends TestBase {
 /* codul se repeta - facem o metoda noua
 public void doValidLogin*/
     public void DoLogin(String user, String pass) {//ii dam user si parola
-
         driver.get("https://rawgit.com/sdl/Testy/master/src/test/functional/app-demo/login.html");
 
-        //executie
-        driver.findElement(By.name("username")).sendKeys(user);
+        loginPage.login(user, pass);
 
-        WebElement passwordElement = driver.findElement(By.id("password"));
-        passwordElement.sendKeys(pass);
-
-        driver.findElement(By.id("loginButton")).click();
     }
 
 
