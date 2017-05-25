@@ -17,6 +17,19 @@ public class LoginPage {
     public WebElement loginBtn;
 
 
+
+
+
+
+    //folosit in LoginTest
+    public void login(String user, String pass){
+
+        userNameElement.sendKeys(user);
+        passwordElement.sendKeys(pass);
+        loginBtn.click();
+    }
+
+
   /*  public static void main(String[] args) {
         LoginPage loginPage = new LoginPage()
 
