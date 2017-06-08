@@ -1,7 +1,10 @@
 package org.fasttrackit.Examples;
 
+import com.sdl.selenium.web.SearchType;
 import com.sdl.selenium.web.WebLocator;
 import com.sdl.selenium.web.form.CheckBox;
+import com.sdl.selenium.web.table.Row;
+import com.sdl.selenium.web.table.Table;
 import com.sun.jna.platform.win32.Netapi32Util;
 import org.fasttrackit.util.TestBase;
 import org.testng.annotations.Test;
@@ -33,4 +36,32 @@ public class ExamplesTest extends TestBase {
 
         row.setChildNodes(firstName, lastName);
         select.click();
-}}
+}
+    @Test
+    public void selectRowTest(){
+        driver.get("https://rawgit.com/sdl/Testy/master/src/test/functional/app-demo/login.html");
+
+        loginView.login("eu@fast.com", "eu.pass");
+
+        Table table = new Table().setClasses("table-striped");
+        Row row =  table.getRow(2);
+        CheckBox select = new CheckBox(row);
+        select.click();
+
+
+        Row row2 =  table.getRow("nickwhite@mail.com");
+        CheckBox select2 = new CheckBox(row2);
+        select2.click();
+
+        Row row3 =  table.getRow("bobsmith", SearchType.CASE_INSENSITIVE.STARTS_WITH);
+        CheckBox select3 = new CheckBox(row3);
+        select3.click();
+
+
+
+
+
+    }
+
+
+}
